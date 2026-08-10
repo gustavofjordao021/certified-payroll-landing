@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { AnalyticsProvider } from "@/lib/analytics";
+import { Analytics } from "@vercel/analytics/next";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.wh347form.com"),
@@ -23,7 +24,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <body><AnalyticsProvider>{children}</AnalyticsProvider></body>
+      <body><AnalyticsProvider>{children}</AnalyticsProvider><Analytics /></body>
     </html>
   );
 }

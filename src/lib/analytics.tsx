@@ -1,6 +1,7 @@
 "use client";
 
 import posthog from "posthog-js";
+import { track as vercelTrack } from "@vercel/analytics";
 import { useEffect } from "react";
 
 // Public client token for the dedicated wh347form PostHog project.
@@ -23,6 +24,6 @@ export function AnalyticsProvider({ children }: { children: React.ReactNode }) {
 }
 
 export function track(event: string, properties?: Record<string, unknown>) {
-  if (!POSTHOG_KEY) return;
-  posthog.capture(event, properties);
+  vercelTrack(event, properties as Record<string, string | number | boolean | null>);
+  if (POSTHOG_KEY) posthog.capture(event, properties);
 }
