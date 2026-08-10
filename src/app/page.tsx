@@ -48,6 +48,18 @@ export default function Home() {
         </div>
       </div>
 
+      <h2>Guides</h2>
+      <div className="grid">
+        <div className="card">
+          <h3><Link href="/certified-payroll-report">What is a certified payroll report?</Link></h3>
+          <p>WH-347 explained: who files, what goes in it, and when it&rsquo;s due.</p>
+        </div>
+        <div className="card">
+          <h3><Link href="/california-dir-ecpr">California DIR eCPR guide</Link></h3>
+          <p>PWCR, weekly filings, no-work weeks, and iForm vs XML upload.</p>
+        </div>
+      </div>
+
       <footer>
         WH347form.com — certified payroll automation. Free generator, no signup.
       </footer>
