@@ -14,6 +14,9 @@ export const metadata: Metadata = {
     siteName: "WH347form.com",
     type: "website",
   },
+  verification: {
+    google: "OpicVFoWkwfHTMx6lXToLGxavRSkOMNH5iLKlTX-3fU",
+  },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
