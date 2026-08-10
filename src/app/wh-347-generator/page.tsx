@@ -109,7 +109,7 @@ export default function Generator() {
       </form>
       <footer>
         Want this filled automatically from your payroll report every week —
-        plus the California DIR eCPR XML? <a href="mailto:hello@formfriday.com?subject=Early access">Get early access.</a>
+        plus the California DIR eCPR XML? <a href="mailto:hello@wh347form.com?subject=Early access">Get early access.</a>
       </footer>
     </main>
   );

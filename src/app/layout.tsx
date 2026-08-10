@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "FormFriday — certified payroll, filed from the payroll you already ran",
+  title: "WH347form.com — certified payroll, filed from the payroll you already ran",
   description:
-    "Upload your payroll report. Get your WH-347 and California DIR forms back in minutes — no re-typing hours, no switching payroll systems.",
+    "Free WH-347 generator plus automated certified payroll: upload your payroll report and get your WH-347 and California DIR forms back in minutes.",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

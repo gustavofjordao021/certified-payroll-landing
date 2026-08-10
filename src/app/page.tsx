@@ -10,7 +10,7 @@ export default function Home() {
       </h1>
       <p className="lede">{vertical.positioning}</p>
       <p className="lede">
-        No re-typing hours. No switching payroll systems. FormFriday reads the
+        No re-typing hours. No switching payroll systems. We read the
         payroll report you already have — Gusto, ADP, QuickBooks, even a photo
         of the crew timesheet — checks the math, and hands you the finished
         filing.
@@ -19,7 +19,7 @@ export default function Home() {
         <Link className="cta" href="/wh-347-generator">
           Generate a free WH-347
         </Link>
-        <a className="cta secondary" href="mailto:hello@formfriday.com?subject=Early access">
+        <a className="cta secondary" href="mailto:hello@wh347form.com?subject=Early access">
           Get early access
         </a>
       </div>
@@ -49,8 +49,7 @@ export default function Home() {
       </div>
 
       <footer>
-        FormFriday (working title) — MVP scaffold. Engine: dual-model extraction
-        + deterministic checksums, validated 2026-08-06.
+        WH347form.com — certified payroll automation. Free generator, no signup.
       </footer>
     </main>
   );
