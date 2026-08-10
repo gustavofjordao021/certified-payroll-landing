@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { renderPayrollReport } from "@/engine/render/payroll-report";
 import type { EmployeeRow } from "@/engine/types";
+import { track } from "@/lib/analytics";
 
 // Free WH-347 generator — the funnel lead magnet ("wh 347 form": 1,300
 // searches/mo). Fully client-side: no signup, no upload, nothing leaves the
@@ -44,6 +45,7 @@ export default function Generator() {
       a.download = `wh347-payroll-${meta.payrollNumber || "1"}.pdf`;
       a.click();
       URL.revokeObjectURL(a.href);
+      track("wh347_pdf_downloaded", { workers: rows.length });
     } finally {
       setBusy(false);
     }
@@ -109,7 +111,7 @@ export default function Generator() {
       </form>
       <footer>
         Want this filled automatically from your payroll report every week —
-        plus the California DIR eCPR XML? <a href="mailto:hello@wh347form.com?subject=Early access">Get early access.</a>
+        plus the California DIR eCPR XML? <a href="mailto:hello@wh347form.com?subject=Early access" onClick={() => track("early_access_clicked", { source: "generator" })}>Get early access.</a>
       </footer>
     </main>
   );
