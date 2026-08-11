@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { extractPayroll, PRIMARY_MODEL, SECONDARY_MODEL } from "@/engine/extraction/extract";
+import { extractPayroll, gatewayHealth, PRIMARY_MODEL, SECONDARY_MODEL } from "@/engine/extraction/extract";
 import { reconcile } from "@/engine/extraction/agreement";
 
 export const maxDuration = 120;
@@ -18,9 +18,6 @@ function rateLimited(ip: string): boolean {
 // The core paid-product endpoint: dual-model extraction + reconciliation.
 export async function POST(request: Request) {
   try {
-    if (!process.env.ANTHROPIC_API_KEY)
-      return NextResponse.json({ error: "extraction not configured" }, { status: 503 });
-
     const ip = request.headers.get("x-forwarded-for")?.split(",")[0]?.trim() ?? "unknown";
     if (rateLimited(ip))
       return NextResponse.json({ error: "rate limit: 5 extractions per hour during beta" }, { status: 429 });
@@ -38,4 +35,12 @@ export async function POST(request: Request) {
     const message = error instanceof Error ? error.message : "extraction failed";
     return NextResponse.json({ error: message }, { status: 500 });
   }
+}
+
+// GET /api/extract — gateway health check: confirms OIDC auth works and both
+// model ids resolve in the AI Gateway catalog. Safe to hit after any deploy.
+export async function GET() {
+  const results = await gatewayHealth();
+  const ok = results.every((r) => r.ok);
+  return NextResponse.json({ ok, results }, { status: ok ? 200 : 503 });
 }
