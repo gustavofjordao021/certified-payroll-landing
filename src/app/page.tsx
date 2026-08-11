@@ -58,6 +58,14 @@ export default function Home() {
           <h3><Link href="/california-dir-ecpr">California DIR eCPR guide</Link></h3>
           <p>PWCR, weekly filings, no-work weeks, and iForm vs XML upload.</p>
         </div>
+        <div className="card">
+          <h3><Link href="/how-to-fill-out-wh-347">How to fill out WH-347</Link></h3>
+          <p>Every column explained, and where filings get rejected.</p>
+        </div>
+        <div className="card">
+          <h3><Link href="/certified-payroll-excel-template">Excel template vs generator</Link></h3>
+          <p>Why paid WH-347 spreadsheets exist and the free alternative.</p>
+        </div>
       </div>
 
       <footer>

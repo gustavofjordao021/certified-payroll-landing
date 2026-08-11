@@ -11,6 +11,20 @@ export const metadata: Metadata = {
 export default function Page() {
   return (
     <main>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          mainEntity: [
+            { "@type": "Question", name: "What is a certified payroll report?", acceptedAnswer: { "@type": "Answer", text: "A weekly wage report (federal form WH-347) that contractors on government-funded construction projects file to prove workers were paid the required prevailing wage, signed under a Statement of Compliance." } },
+            { "@type": "Question", name: "Who has to file certified payroll?", acceptedAnswer: { "@type": "Answer", text: "Every contractor and subcontractor on a federally funded or assisted construction contract covered by the Davis-Bacon Act, generally contracts over $2,000. Many states impose parallel requirements on state-funded public works." } },
+            { "@type": "Question", name: "When is certified payroll due?", acceptedAnswer: { "@type": "Answer", text: "Weekly. On federal work, within seven days after the regular pay date for the payroll week, for every week workers are on the project." } },
+            { "@type": "Question", name: "Is there a free way to create a WH-347?", acceptedAnswer: { "@type": "Answer", text: "Yes - the free WH-347 generator at wh347form.com fills the form in your browser with automatic overtime splitting. No signup, and nothing is uploaded or stored." } }
+          ]
+        }) }}
+      />
+
       <span className="badge">Plain-English explainer</span>
       <h1>What is a certified payroll report?</h1>
       <p className="lede">

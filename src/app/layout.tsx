@@ -15,6 +15,7 @@ export const metadata: Metadata = {
     url: "https://www.wh347form.com",
     siteName: "WH347form.com",
     type: "website",
+    images: [{ url: "/og.png", width: 1200, height: 630 }],
   },
   verification: {
     google: "OpicVFoWkwfHTMx6lXToLGxavRSkOMNH5iLKlTX-3fU",
