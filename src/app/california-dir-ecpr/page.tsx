@@ -11,6 +11,10 @@ export const metadata: Metadata = {
 export default function Page() {
   return (
     <main>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: "{\"@context\": \"https://schema.org\", \"@type\": \"FAQPage\", \"mainEntity\": [{\"@type\": \"Question\", \"name\": \"Do I have to file certified payroll in California for weeks with no work?\", \"acceptedAnswer\": {\"@type\": \"Answer\", \"text\": \"Yes. On California public works projects, a certified payroll report is due for each week of the project, including non-performance weeks where no work was performed.\"}}, {\"@type\": \"Question\", \"name\": \"What is the eCPR XML upload?\", \"acceptedAnswer\": {\"@type\": \"Answer\", \"text\": \"Instead of typing each worker into the DIR's web form, contractors can upload an XML file in the DIR's eCPR format covering the whole week's payroll for a project, submitted under their own DIR portal login.\"}}, {\"@type\": \"Question\", \"name\": \"Do I need to register with the DIR before working on public works?\", \"acceptedAnswer\": {\"@type\": \"Answer\", \"text\": \"Yes. An active Public Works Contractor Registration (PWCR) with the California DIR is required before bidding or working on covered public works projects.\"}}]}" }}
+      />
       <span className="badge">California guide</span>
       <h1>California DIR certified payroll (eCPR), explained</h1>
       <p className="lede">

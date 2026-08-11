@@ -67,6 +67,14 @@ export default function Home() {
           <h3><Link href="/certified-payroll-excel-template">Excel template vs generator</Link></h3>
           <p>Why paid WH-347 spreadsheets exist and the free alternative.</p>
         </div>
+        <div className="card">
+          <h3><Link href="/prevailing-wage-payroll">Prevailing wage payroll</Link></h3>
+          <p>Base vs fringe, the overtime trap, and classification splits.</p>
+        </div>
+        <div className="card">
+          <h3><Link href="/certified-payroll-texas">Certified payroll in Texas</Link></h3>
+          <p>Federal WH-347 vs Government Code 2258, and who you file with.</p>
+        </div>
       </div>
 
       <footer>

@@ -11,6 +11,10 @@ export const metadata: Metadata = {
 export default function Page() {
   return (
     <main>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: "{\"@context\": \"https://schema.org\", \"@type\": \"FAQPage\", \"mainEntity\": [{\"@type\": \"Question\", \"name\": \"Do I put full Social Security numbers on the WH-347?\", \"acceptedAnswer\": {\"@type\": \"Answer\", \"text\": \"No. Use the worker's name plus an identifying number, typically the last four digits of the SSN, on submitted copies.\"}}, {\"@type\": \"Question\", \"name\": \"How is overtime shown on the WH-347?\", \"acceptedAnswer\": {\"@type\": \"Answer\", \"text\": \"Column 4 has separate rows for overtime and straight time per day; overtime is paid at no less than 1.5 times the base rate, and weekly totals go in column 5.\"}}, {\"@type\": \"Question\", \"name\": \"When is the WH-347 due?\", \"acceptedAnswer\": {\"@type\": \"Answer\", \"text\": \"Weekly, within seven days after the regular pay date for the payroll week, for every week workers are employed on the covered project.\"}}]}" }}
+      />
       <span className="badge">Step-by-step</span>
       <h1>How to fill out form WH-347, column by column</h1>
       <p className="lede">

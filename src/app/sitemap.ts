@@ -8,5 +8,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: "https://www.wh347form.com/certified-payroll-report", changeFrequency: "monthly", priority: 0.8 },
     { url: "https://www.wh347form.com/how-to-fill-out-wh-347", changeFrequency: "monthly", priority: 0.8 },
     { url: "https://www.wh347form.com/certified-payroll-excel-template", changeFrequency: "monthly", priority: 0.7 },
+    { url: "https://www.wh347form.com/prevailing-wage-payroll", changeFrequency: "monthly", priority: 0.7 },
+    { url: "https://www.wh347form.com/certified-payroll-texas", changeFrequency: "monthly", priority: 0.7 },
+    { url: "https://www.wh347form.com/try", changeFrequency: "weekly", priority: 0.9 },
   ];
 }
