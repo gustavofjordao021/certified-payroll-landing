@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { renderPayrollReport } from "@/engine/render/payroll-report";
 import type { EmployeeRow } from "@/engine/types";
 import { track } from "@/lib/analytics";
@@ -15,6 +15,23 @@ export default function Generator() {
   const [meta, setMeta] = useState({ contractor: "", address: "", projectName: "", projectLocation: "", payrollNumber: "1", weekEnding: "" });
   const [emps, setEmps] = useState([emptyEmp()]);
   const [busy, setBusy] = useState(false);
+
+  useEffect(() => {
+    try {
+      const raw = localStorage.getItem("wh347_prefill");
+      if (!raw) return;
+      localStorage.removeItem("wh347_prefill");
+      const rows = JSON.parse(raw) as EmployeeRow[];
+      if (!Array.isArray(rows) || !rows.length) return;
+      setEmps(rows.map((r) => ({
+        name: r.name ?? "",
+        classification: r.classification ?? "",
+        daily: (r.daily_hours ?? Array(7).fill(null)).map((h) => (h ? String(h) : "")),
+        rate: r.hourly_rate != null ? String(r.hourly_rate) : "",
+        fringe: r.fringe_total != null ? String(r.fringe_total) : "",
+      })));
+    } catch {}
+  }, []);
 
   async function generate() {
     setBusy(true);

@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { vertical } from "@/verticals/certified-payroll";
+import { EarlyAccessLink } from "./early-access-link";
 
 export default function Home() {
   return (
@@ -19,9 +20,9 @@ export default function Home() {
         <Link className="cta" href="/wh-347-generator">
           Generate a free WH-347
         </Link>
-        <a className="cta secondary" href="mailto:hello@wh347form.com?subject=Early access">
+        <EarlyAccessLink className="cta secondary" source="landing">
           Get early access
-        </a>
+        </EarlyAccessLink>
       </div>
 
       <h2>How it works</h2>
@@ -31,7 +32,7 @@ export default function Home() {
           <p>Payroll register, journal, or crew timesheet — PDF, export, or photo.</p>
         </div>
         <div className="card">
-          <h3>2. We read and check it</h3>
+          <h3>2. We read and check it (<Link href="/try">try the beta</Link>)</h3>
           <p>
             Two independent AI reads plus arithmetic checks. Rows that match
             auto-fill; anything uncertain is flagged for a one-click confirm —
