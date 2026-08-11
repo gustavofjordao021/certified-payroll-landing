@@ -129,7 +129,7 @@ export default function Generator() {
       </form>
       <footer>
         Want this filled automatically from your payroll report every week —
-        plus the California DIR eCPR XML? <a href="mailto:hello@wh347form.com?subject=Early access" onClick={() => track("early_access_clicked", { source: "generator" })}>Get early access.</a>
+        plus California DIR eCPR XML export when it ships? <a href="mailto:hello@wh347form.com?subject=Early access" onClick={() => track("early_access_clicked", { source: "generator" })}>Get early access.</a>
       </footer>
     </main>
   );
