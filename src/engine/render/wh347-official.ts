@@ -56,7 +56,7 @@ export interface OfficialMeta extends ReportMeta {
   wageDeterminationNo?: string;
 }
 
-function splitName(full: string): { last: string; first: string; middle: string } {
+export function splitName(full: string): { last: string; first: string; middle: string } {
   const parts = full.trim().split(/\s+/);
   if (parts.length === 1) return { last: parts[0], first: "", middle: "" };
   if (parts.length === 2) return { first: parts[0], last: parts[1], middle: "" };
@@ -65,7 +65,7 @@ function splitName(full: string): { last: string; first: string; middle: string 
 
 // Allocate daily hours into ST/OT per federal weekly-overtime convention:
 // straight time until the 40-hour budget is used, remainder is OT.
-function splitDaily(daily: (number | null)[] | null, regBudget = 40) {
+export function splitDaily(daily: (number | null)[] | null, regBudget = 40) {
   const st: number[] = [], ot: number[] = [];
   let budget = regBudget;
   for (const h0 of daily ?? []) {
