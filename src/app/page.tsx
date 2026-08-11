@@ -1,28 +1,62 @@
 import Link from "next/link";
+import Image from "next/image";
 import { vertical } from "@/verticals/certified-payroll";
 import { EarlyAccessLink } from "./early-access-link";
 
 export default function Home() {
   return (
-    <main>
-      <span className="badge">For subcontractors on public works jobs</span>
-      <h1>
-        Certified payroll, filed from the payroll you already ran.
-      </h1>
-      <p className="lede">{vertical.positioning}</p>
-      <p className="lede">
-        No re-typing hours. No switching payroll systems. We read the
-        payroll report you already have — Gusto, ADP, QuickBooks, even a photo
-        of the crew timesheet — checks the math, and hands you the finished
-        filing.
-      </p>
-      <div>
-        <Link className="cta" href="/wh-347-generator">
-          Generate a free WH-347
+    <main className="wide">
+      <div className="hero">
+        <div className="hero-copy">
+          <span className="badge">For subcontractors on public works jobs</span>
+          <h1>Certified payroll, filed from the payroll you already ran.</h1>
+          <p className="lede">{vertical.positioning}</p>
+          <div className="chips">
+            <span className="chip">100% free</span>
+            <span className="chip">No signup</span>
+            <span className="chip">Nothing leaves your browser</span>
+            <span className="chip">Official DOL form — Rev. Jan 2025</span>
+          </div>
+          <div>
+            <Link className="cta" href="/wh-347-generator">
+              Generate a free WH-347
+            </Link>
+            <Link className="cta secondary" href="/try">
+              Upload payroll instead
+            </Link>
+          </div>
+          <div className="statebar">
+            <span>Covers:</span>
+            <span className="statechip">Federal WH-347</span>
+            <Link className="statechip" href="/california-dir-ecpr">California eCPR</Link>
+            <Link className="statechip" href="/certified-payroll-texas">Texas</Link>
+          </div>
+        </div>
+        <Link href="/wh-347-generator" className="form-card" aria-label="Example of a filled WH-347 form">
+          <Image
+            src="/wh347-hero.png"
+            alt="Official DOL WH-347 certified payroll form, filled automatically"
+            width={1320}
+            height={1020}
+            priority
+          />
+          <span className="form-card-caption">The actual DOL form, filled for you</span>
         </Link>
-        <EarlyAccessLink className="cta secondary" source="landing">
-          Get early access
-        </EarlyAccessLink>
+      </div>
+
+      <div className="statstrip">
+        <div>
+          <strong>55 minutes</strong>
+          <span>DOL&rsquo;s own time estimate per WH-347 (printed on the form)</span>
+        </div>
+        <div>
+          <strong>~2 minutes</strong>
+          <span>with the free generator — overtime split automatically</span>
+        </div>
+        <div>
+          <strong>Every week</strong>
+          <span>per project, signed under penalty of perjury — worth getting right</span>
+        </div>
       </div>
 
       <h2>How it works</h2>
@@ -42,9 +76,9 @@ export default function Home() {
         <div className="card">
           <h3>3. Download the filing</h3>
           <p>
-            WH-347 PDF ready to sign, and a California DIR eCPR XML you upload
-            straight to the state portal. Every week, per project, with
-            &ldquo;no work&rdquo; weeks handled.
+            The official WH-347 PDF ready to sign, and a California DIR eCPR
+            XML you upload straight to the state portal. Every week, per
+            project, with &ldquo;no work&rdquo; weeks handled.
           </p>
         </div>
       </div>
@@ -74,6 +108,18 @@ export default function Home() {
         <div className="card">
           <h3><Link href="/certified-payroll-texas">Certified payroll in Texas</Link></h3>
           <p>Federal WH-347 vs Government Code 2258, and who you file with.</p>
+        </div>
+      </div>
+
+      <div className="closer">
+        <h2>This Friday&rsquo;s payroll is already due next week.</h2>
+        <div>
+          <Link className="cta" href="/wh-347-generator">
+            Generate a free WH-347
+          </Link>
+          <EarlyAccessLink className="cta secondary" source="landing">
+            Get early access to weekly automation
+          </EarlyAccessLink>
         </div>
       </div>
 

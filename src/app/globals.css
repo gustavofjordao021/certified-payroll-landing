@@ -25,3 +25,28 @@ form.gen legend { font-weight: 600; font-size: 0.9rem; padding: 0 6px; }
 form.gen input { padding: 8px 10px; border: 1px solid var(--line); border-radius: 6px; font-size: 0.92rem; width: 100%; }
 .row { display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 8px; }
 footer { margin-top: 4rem; padding-top: 1.2rem; border-top: 1px solid var(--line); font-size: 0.82rem; color: var(--muted); }
+
+/* --- document-as-hero landing --- */
+main.wide { max-width: 1080px; }
+.hero { display: grid; grid-template-columns: 1.05fr 0.95fr; gap: 40px; align-items: center; margin-top: 8px; }
+.hero-copy h1 { font-size: 2.3rem; }
+.chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 1.1rem; }
+.chip { font-size: 0.78rem; font-weight: 600; color: var(--accent); background: #eaf3ec; border: 1px solid #cfe3d5; border-radius: 99px; padding: 4px 12px; }
+.statebar { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin-top: 1.4rem; font-size: 0.85rem; color: var(--muted); }
+.statechip { font-size: 0.82rem; font-weight: 600; color: var(--ink); background: #fff; border: 1px solid var(--line); border-radius: 8px; padding: 5px 11px; text-decoration: none; }
+a.statechip:hover { border-color: var(--accent); color: var(--accent); }
+.form-card { display: block; position: relative; background: #fff; border: 1px solid var(--line); border-radius: 12px; padding: 10px; transform: rotate(1.2deg); box-shadow: 0 18px 40px rgba(22, 33, 28, 0.16); transition: transform 0.2s ease; }
+.form-card:hover { transform: rotate(0deg) scale(1.01); }
+.form-card img { width: 100%; height: auto; border-radius: 6px; display: block; }
+.form-card-caption { position: absolute; bottom: -12px; left: 50%; transform: translateX(-50%); white-space: nowrap; background: var(--accent); color: var(--accent-ink); font-size: 0.78rem; font-weight: 600; border-radius: 99px; padding: 5px 14px; }
+.statstrip { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; margin-top: 3rem; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); padding: 18px 0; }
+.statstrip div { display: flex; flex-direction: column; gap: 2px; }
+.statstrip strong { font-size: 1.35rem; letter-spacing: -0.01em; }
+.statstrip span { font-size: 0.84rem; color: var(--muted); }
+.closer { text-align: center; margin-top: 3.2rem; padding: 34px 20px; background: #fff; border: 1px solid var(--line); border-radius: 14px; }
+.closer h2 { margin-top: 0; }
+@media (max-width: 860px) {
+  .hero { grid-template-columns: 1fr; gap: 30px; }
+  .hero-copy h1 { font-size: 1.9rem; }
+  .form-card { transform: none; margin-top: 6px; }
+}
