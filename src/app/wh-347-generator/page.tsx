@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { renderPayrollReport } from "@/engine/render/payroll-report";
+import { renderOfficialWH347 } from "@/engine/render/wh347-official";
 import type { EmployeeRow } from "@/engine/types";
 import { track } from "@/lib/analytics";
 
@@ -55,7 +55,8 @@ export default function Generator() {
             fringe_total: e.fringe ? Number(e.fringe) : null,
           };
         });
-      const bytes = await renderPayrollReport(meta, rows);
+      const template = await fetch("/wh347-official.pdf").then((r) => r.arrayBuffer());
+      const bytes = await renderOfficialWH347(template, meta, rows);
       const blob = new Blob([new Uint8Array(bytes)], { type: "application/pdf" });
       const a = document.createElement("a");
       a.href = URL.createObjectURL(blob);
