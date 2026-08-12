@@ -76,9 +76,8 @@ export default function Home() {
         <div className="card">
           <h3>3. Download the filing</h3>
           <p>
-            The official WH-347 PDF ready to sign — free, today. California DIR
-            eCPR XML export is next on the roadmap (join early access to get
-            it first).
+            The official WH-347 PDF ready to sign — free, today. California
+            DIR eCPR XML export is live in beta inside the free generator.
           </p>
         </div>
       </div>

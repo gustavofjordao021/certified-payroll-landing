@@ -1,18 +1,12 @@
 import { NextResponse } from "next/server";
 import { extractPayroll, gatewayHealth, PRIMARY_MODEL, SECONDARY_MODEL } from "@/engine/extraction/extract";
 import { reconcile } from "@/engine/extraction/agreement";
+import { createRateLimiter } from "@/lib/rate-limit";
 
 export const maxDuration = 120;
 
 // Best-effort abuse guard (per lambda instance): 5 extractions/hour/IP.
-const hits = new Map<string, { n: number; ts: number }>();
-function rateLimited(ip: string): boolean {
-  const now = Date.now();
-  const h = hits.get(ip);
-  if (!h || now - h.ts > 3600_000) { hits.set(ip, { n: 1, ts: now }); return false; }
-  h.n += 1;
-  return h.n > 5;
-}
+const rateLimited = createRateLimiter(5, 3600_000);
 
 // POST { pdfBase64 } -> VerifiedExtraction
 // The core paid-product endpoint: dual-model extraction + reconciliation.

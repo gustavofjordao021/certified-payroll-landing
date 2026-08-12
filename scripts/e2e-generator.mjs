@@ -27,9 +27,9 @@ const [download] = await Promise.all([
   page.waitForEvent("download", { timeout: 30000 }),
   page.click("button.cta:not(.secondary)"),
 ]);
-const out = join(mkdtempSync(join(tmpdir(), "wh347-e2e-")), "out.pdf");
+const dir = mkdtempSync(join(tmpdir(), "wh347-e2e-"));
+const out = join(dir, "out.pdf");
 await download.saveAs(out);
-await browser.close();
 
 const text = execFileSync("pdftotext", [out, "-"]).toString();
 const expected = ["Ramirez", "Miguel", "Electrician", "58.25", "Lincoln Elementary", "Statement of Compliance"];
@@ -39,3 +39,39 @@ if (missing.length) {
   process.exit(1);
 }
 console.log("E2E PASS — official WH-347 generated with all entered data");
+
+// California eCPR XML path: toggle the CA section, fill the DIR-mandatory
+// fields, download the XML and assert the DIR contract essentials.
+await page.check('input[type="checkbox"]');
+await page.fill('input[placeholder="DIR Project ID"]', "12345");
+await page.fill('input[placeholder="License number"]', "1088999");
+await page.fill('input[placeholder="PWCR registration #"]', "1000012345");
+await page.fill('input[placeholder="FEIN"]', "941234567");
+await page.fill('input[placeholder="Workers\' comp insurance #"]', "WC-778");
+await page.fill('input[placeholder="Contractor email"]', "office@valdezelectric.com");
+await page.fill('input[placeholder="Business street"]', "44 Mission St");
+await page.fill('input[placeholder="SSN (eCPR only)"]', "111-22-3333");
+await page.fill('input[placeholder="Home street"]', "33 Elm Ave");
+const [xmlDownload] = await Promise.all([
+  page.waitForEvent("download", { timeout: 15000 }),
+  page.click('button:has-text("Download eCPR XML")'),
+]);
+const xmlOut = join(dir, "out.xml");
+await xmlDownload.saveAs(xmlOut);
+await browser.close();
+
+const xml = (await import("fs")).readFileSync(xmlOut, "utf8");
+const xmlExpected = [
+  '<CPR:eCPR xmlns:CPR="http://www.dir.ca.gov/dlse/CPR-Prod-Test/CPR.xsd">',
+  '<CPR:name id="111223333::MIGUEL RAMIREZ">Miguel Ramirez</CPR:name>',
+  "<CPR:projectID>12345</CPR:projectID>",
+  "<CPR:payrollNum></CPR:payrollNum>",
+  "<CPR:forWeekEnding>2026-08-09</CPR:forWeekEnding>",
+  "<CPR:hrlyPayRateStraightTime>58.25</CPR:hrlyPayRateStraightTime>",
+];
+const xmlMissing = xmlExpected.filter((e) => !xml.includes(e));
+if (xmlMissing.length) {
+  console.error("E2E FAIL — missing from eCPR XML:", xmlMissing);
+  process.exit(1);
+}
+console.log("E2E PASS — California eCPR XML generated with the DIR contract intact");

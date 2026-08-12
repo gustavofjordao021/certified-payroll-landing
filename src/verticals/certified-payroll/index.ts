@@ -8,7 +8,7 @@ export const vertical = {
   positioning:
     "Upload your payroll report — get your signed WH-347 and state certified payroll forms back in minutes, every week, for every project.",
   buyer: "Subcontractors and small GCs on public works projects",
-  outputs: ["WH-347 PDF", "California DIR eCPR XML (planned)"],
+  outputs: ["WH-347 PDF", "California DIR eCPR XML"],
   // Funnel pages, from measured keyword data (see research/opportunity-scout):
   // "wh 347 form" 1,300/mo · "dir certified payroll" 500/mo (low comp) ·
   // "certified payroll report" 500/mo
@@ -19,7 +19,6 @@ export const vertical = {
   ],
 } as const;
 
-// TODO(v1): California DIR eCPR XML serializer — spec at
-// https://www.dir.ca.gov/public-works/ecpruserguide.pdf (XML upload path
-// confirmed viable: contractor downloads XML from us, submits via their own
-// DIR portal login — no per-customer integration needed).
+// eCPR XML serializer shipped: src/engine/serialize/ecpr-xml.ts (spec at
+// docs/ecpr-xml-spec.md). Contractor downloads XML from us and submits via
+// their own DIR portal login — no per-customer integration needed.

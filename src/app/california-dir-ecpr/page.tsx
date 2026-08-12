@@ -84,9 +84,9 @@ export default function Page() {
         <Link className="cta" href="/wh-347-generator">
           Try the free WH-347 generator
         </Link>
-        <a className="cta secondary" href="mailto:hello@wh347form.com?subject=Early access — California eCPR">
-          Get early access to eCPR XML
-        </a>
+        <Link className="cta secondary" href="/wh-347-generator">
+          Download eCPR XML (beta) — in the generator
+        </Link>
       </div>
 
       <footer>
