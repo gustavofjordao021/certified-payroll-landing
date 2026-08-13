@@ -31,7 +31,10 @@ export async function POST(request: Request) {
         ...(process.env.RESEND_SEGMENT_ID ? { segments: [{ id: process.env.RESEND_SEGMENT_ID }] } : {}),
         properties: { source: src },
       }),
-    }).then((r) => r.ok, () => false);
+    }).then(
+      async (r) => ({ ok: r.ok, detail: r.ok ? "" : `${r.status} ${(await r.text()).slice(0, 200)}` }),
+      (e) => ({ ok: false, detail: e instanceof Error ? e.message : "fetch failed" }),
+    );
 
     // Optional real-time ping — only when EARLY_ACCESS_NOTIFY is set; the
     // Resend contact (the list itself) is the source of truth either way.
@@ -50,9 +53,11 @@ export async function POST(request: Request) {
       : Promise.resolve(false);
 
     // The contact (the list) is the required leg; the notify ping is bonus.
-    const [contactOk] = await Promise.all([contact, notify]);
-    if (!contactOk)
-      return NextResponse.json({ error: "signup could not be recorded" }, { status: 502 });
+    const [contactRes] = await Promise.all([contact, notify]);
+    if (!contactRes.ok) {
+      console.error("early-access contact creation failed:", contactRes.detail);
+      return NextResponse.json({ error: "signup could not be recorded", detail: contactRes.detail }, { status: 502 });
+    }
     return NextResponse.json({ success: true });
   } catch {
     return NextResponse.json({ error: "invalid request" }, { status: 400 });
