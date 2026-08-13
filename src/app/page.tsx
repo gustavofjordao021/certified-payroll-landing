@@ -108,6 +108,22 @@ export default function Home() {
           <h3><Link href="/certified-payroll-texas">Certified payroll in Texas</Link></h3>
           <p>Federal WH-347 vs Government Code 2258, and who you file with.</p>
         </div>
+        <div className="card">
+          <h3><Link href="/for/quickbooks">Certified payroll from QuickBooks</Link></h3>
+          <p>Export the report you already run; skip the Friday retyping.</p>
+        </div>
+        <div className="card">
+          <h3><Link href="/for/adp">From ADP registers to WH-347</Link></h3>
+          <p>Payroll register in, official form (and eCPR XML) out.</p>
+        </div>
+        <div className="card">
+          <h3><Link href="/for/gusto">Gusto users: your first public works job</Link></h3>
+          <p>What the agency wants that Gusto doesn&rsquo;t produce.</p>
+        </div>
+        <div className="card">
+          <h3><Link href="/lcptracker-alternatives">LCPtracker alternatives</Link></h3>
+          <p>What you can actually replace when the portal is mandated.</p>
+        </div>
       </div>
 
       <div className="closer">

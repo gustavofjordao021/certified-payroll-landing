@@ -10,6 +10,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: "https://www.wh347form.com/certified-payroll-excel-template", changeFrequency: "monthly", priority: 0.7 },
     { url: "https://www.wh347form.com/prevailing-wage-payroll", changeFrequency: "monthly", priority: 0.7 },
     { url: "https://www.wh347form.com/certified-payroll-texas", changeFrequency: "monthly", priority: 0.7 },
+    { url: "https://www.wh347form.com/for/quickbooks", changeFrequency: "monthly", priority: 0.8 },
+    { url: "https://www.wh347form.com/for/adp", changeFrequency: "monthly", priority: 0.8 },
+    { url: "https://www.wh347form.com/for/gusto", changeFrequency: "monthly", priority: 0.8 },
+    { url: "https://www.wh347form.com/lcptracker-alternatives", changeFrequency: "monthly", priority: 0.7 },
     { url: "https://www.wh347form.com/try", changeFrequency: "weekly", priority: 0.9 },
   ];
 }
