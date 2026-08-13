@@ -85,6 +85,10 @@ export default function Home() {
       <h2>Guides</h2>
       <div className="grid">
         <div className="card">
+          <h3><Link href="/wh-347-form">The WH-347 form (official PDF)</Link></h3>
+          <p>Download the blank Rev. Jan 2025 form free, or fill it online.</p>
+        </div>
+        <div className="card">
           <h3><Link href="/certified-payroll-report">What is a certified payroll report?</Link></h3>
           <p>WH-347 explained: who files, what goes in it, and when it&rsquo;s due.</p>
         </div>

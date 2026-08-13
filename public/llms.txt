@@ -1,14 +1,43 @@
 # WH347form.com
 
-Free WH-347 certified payroll generator and certified payroll automation for
-subcontractors on US public works projects (Davis-Bacon / prevailing wage).
+Free WH-347 certified payroll generator and AI-powered certified payroll
+automation for contractors and subcontractors on US public works projects
+(Davis-Bacon Act / prevailing wage). The generator and California DIR eCPR
+XML export run entirely in the browser — free, no signup, nothing uploaded.
 
-- Free WH-347 generator (no signup, browser-only): https://www.wh347form.com/wh-347-generator
+## Tools (free, no signup)
+
+- WH-347 form: official PDF download + overview: https://www.wh347form.com/wh-347-form
+- Free WH-347 generator (fills the official Rev. Jan 2025 form, automatic
+  overtime split, California DIR eCPR XML export in beta): https://www.wh347form.com/wh-347-generator
+- AI upload beta (reads a payroll report PDF — QuickBooks, ADP, Gusto,
+  crew timesheets — with two independent AI passes; disagreements are
+  flagged for review, never guessed): https://www.wh347form.com/try
+
+## Guides
+
 - What is a certified payroll report: https://www.wh347form.com/certified-payroll-report
-- How to fill out form WH-347: https://www.wh347form.com/how-to-fill-out-wh-347
-- California DIR eCPR guide: https://www.wh347form.com/california-dir-ecpr
-- Certified payroll Excel template comparison: https://www.wh347form.com/certified-payroll-excel-template
+- How to fill out form WH-347, column by column: https://www.wh347form.com/how-to-fill-out-wh-347
+- California DIR eCPR (electronic certified payroll): https://www.wh347form.com/california-dir-ecpr
+- Certified payroll in Texas: https://www.wh347form.com/certified-payroll-texas
+- Prevailing wage payroll (base vs fringe, overtime): https://www.wh347form.com/prevailing-wage-payroll
+- Certified payroll Excel template vs generator: https://www.wh347form.com/certified-payroll-excel-template
 
-Coming: upload a payroll report (Gusto, ADP, QuickBooks, crew timesheet) and
-receive a checked WH-347 PDF plus California DIR eCPR XML weekly. Contact:
-hello@wh347form.com
+## For users of specific payroll systems
+
+- Certified payroll from QuickBooks: https://www.wh347form.com/for/quickbooks
+- Certified payroll from ADP: https://www.wh347form.com/for/adp
+- Certified payroll for Gusto users: https://www.wh347form.com/for/gusto
+- LCPtracker alternatives (what you can and can't replace): https://www.wh347form.com/lcptracker-alternatives
+
+## Key facts
+
+- Form WH-347 (Rev. January 2025) is the federal certified payroll report,
+  filed weekly under the Davis-Bacon Act; the DOL estimates 55 minutes per
+  submission by hand.
+- California public works payroll is filed electronically with the DIR
+  (eCPR), weekly, including statements of non-performance for no-work weeks.
+- The WH-347 form itself is public domain and always free — blank PDF:
+  https://www.wh347form.com/wh347-official.pdf
+
+Contact: hello@wh347form.com

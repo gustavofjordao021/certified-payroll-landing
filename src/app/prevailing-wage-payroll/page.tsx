@@ -19,6 +19,17 @@ export default function Page() {
         the certified payroll report exists to prove you did it right.
       </p>
 
+      <h2>The federal prevailing wage form is WH-347</h2>
+      <p>
+        If you are looking for &ldquo;the federal prevailing wage form,&rdquo;
+        it is the Department of Labor&rsquo;s{" "}
+        <Link href="/wh-347-form">form WH-347</Link> — the weekly certified
+        payroll report that proves prevailing wages were paid. The blank PDF
+        is free (never pay to download it), and the{" "}
+        <Link href="/wh-347-generator">free generator</Link> fills it in your
+        browser.
+      </p>
+
       <h2>The wage determination sets two numbers</h2>
       <p>
         For each work classification, the applicable determination lists a{" "}
