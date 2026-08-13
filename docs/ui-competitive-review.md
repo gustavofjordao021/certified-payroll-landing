@@ -3,6 +3,17 @@
 **Goal:** identify the top-performing UI for this product category, unequivocally.
 **Method:** full-page teardowns fetched live: CertifiedPayrollPro (modern standalone SaaS), PrevailComply (design-forward indie, captured 2026-08-06), eBacon (platform/sales-led), Payroll4Construction interactive WH-347 page (content/SEO leader), pdfFiller's WH-347 page (the SERP winner for form-seeker queries). LCPtracker assessed from prior research (agency-sold; UI not applicable to self-serve).
 
+## Sources (the pages torn down)
+
+| Site | URL |
+|---|---|
+| pdfFiller WH-347 form page | https://form-wh-347.pdffiller.com/ (sibling variants of the same pattern: https://certified-payroll-form.pdffiller.com/, https://wh-347-instructions.pdffiller.com/) |
+| CertifiedPayrollPro | https://www.certifiedpayrollpro.com/ |
+| PrevailComply | https://www.prevailcomply.com/ |
+| Payroll4Construction interactive WH-347 | https://www.payroll4construction.com/sample-certified-payroll-report-interact-with-an-example-wh-347/ |
+| eBacon | https://www.ebacon.com/ |
+| (same annotated-document pattern, bonus reference) | https://www.foundationsoft.com/learn/sample-certified-payroll-report-interact-with-an-example-wh-347/ |
+
 ## Ranking
 
 | Rank | Site | Pattern | Why it performs |
