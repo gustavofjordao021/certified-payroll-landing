@@ -28,7 +28,7 @@ export async function POST(request: Request) {
       headers,
       body: JSON.stringify({
         email: email.trim(),
-        ...(process.env.RESEND_SEGMENT_ID ? { segment_ids: [process.env.RESEND_SEGMENT_ID] } : {}),
+        ...(process.env.RESEND_SEGMENT_ID ? { segments: [{ id: process.env.RESEND_SEGMENT_ID }] } : {}),
         properties: { source: src },
       }),
     }).then((r) => r.ok, () => false);
@@ -49,8 +49,9 @@ export async function POST(request: Request) {
         }).then((r) => r.ok, () => false)
       : Promise.resolve(false);
 
-    const [contactOk, notifyOk] = await Promise.all([contact, notify]);
-    if (!contactOk && !notifyOk)
+    // The contact (the list) is the required leg; the notify ping is bonus.
+    const [contactOk] = await Promise.all([contact, notify]);
+    if (!contactOk)
       return NextResponse.json({ error: "signup could not be recorded" }, { status: 502 });
     return NextResponse.json({ success: true });
   } catch {
