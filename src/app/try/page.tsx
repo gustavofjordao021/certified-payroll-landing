@@ -14,11 +14,11 @@ export default function TryPage() {
   const [error, setError] = useState<string | null>(null);
   const [result, setResult] = useState<VerifiedExtraction | null>(null);
 
-  async function onFile(file: File) {
+  async function onFile(file: File, isSample = false) {
     setBusy(true);
     setError(null);
     setResult(null);
-    track("extract_uploaded", { size_kb: Math.round(file.size / 1024) });
+    track("extract_uploaded", { size_kb: Math.round(file.size / 1024), sample: isSample });
     try {
       const buf = await file.arrayBuffer();
       let binary = "";
@@ -77,6 +77,22 @@ export default function TryPage() {
               if (f) void onFile(f);
             }}
           />
+          <p style={{ fontSize: "0.85rem", margin: "10px 0 0" }}>
+            Not ready to upload your own payroll?{" "}
+            <button
+              type="button"
+              disabled={busy}
+              onClick={async () => {
+                const blob = await fetch("/sample-payroll.pdf").then((r) => r.blob());
+                void onFile(new File([blob], "sample-payroll.pdf", { type: "application/pdf" }), true);
+              }}
+              style={{ background: "none", border: "none", padding: 0, font: "inherit", color: "inherit", textDecoration: "underline", cursor: "pointer" }}
+            >
+              run the sample crew timesheet
+            </button>{" "}
+            (synthetic data) and watch the verify screen work first.{" "}
+            <a href="/sample-payroll.pdf" target="_blank" rel="noopener">See the sample PDF.</a>
+          </p>
         </fieldset>
       </form>
 
