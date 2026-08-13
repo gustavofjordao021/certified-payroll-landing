@@ -23,26 +23,17 @@ export async function POST(request: Request) {
     const headers = { Authorization: `Bearer ${key}`, "content-type": "application/json" };
     const src = (source ?? "unknown").slice(0, 40);
 
-    const createContact = (withSegment: boolean) =>
-      fetch("https://api.resend.com/contacts", {
-        method: "POST",
-        headers,
-        body: JSON.stringify({
-          email: email.trim(),
-          ...(withSegment && process.env.RESEND_SEGMENT_ID
-            ? { segments: [{ id: process.env.RESEND_SEGMENT_ID }] }
-            : {}),
-          properties: { source: src },
-        }),
-      }).then(
-        async (r) => ({ ok: r.ok, detail: r.ok ? "" : `${r.status} ${(await r.text()).slice(0, 200)}` }),
-        (e) => ({ ok: false as const, detail: e instanceof Error ? e.message : "fetch failed" }),
-      );
-
-    // Segment attachment is best-effort: if Resend rejects the segment id,
-    // store the contact globally rather than losing the signup.
-    const contact = createContact(true).then((r) =>
-      !r.ok && r.detail.includes("segments do not exist") ? createContact(false) : r,
+    // Bare contact only: this account predates Resend's segments/properties
+    // migration, and its REST key rejects both fields ("do not exist") even
+    // though the dashboard connector can create them. Signup source is
+    // preserved in the analytics event and the notification email instead.
+    const contact = fetch("https://api.resend.com/contacts", {
+      method: "POST",
+      headers,
+      body: JSON.stringify({ email: email.trim() }),
+    }).then(
+      async (r) => ({ ok: r.ok, detail: r.ok ? "" : `${r.status} ${(await r.text()).slice(0, 200)}` }),
+      (e) => ({ ok: false, detail: e instanceof Error ? e.message : "fetch failed" }),
     );
 
     // Optional real-time ping — only when EARLY_ACCESS_NOTIFY is set; the
