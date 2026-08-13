@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { EarlyAccessLink } from "../early-access-link";
 
 export const metadata: Metadata = {
   title: "Certified Payroll Excel Template vs. Free WH-347 Generator",
@@ -61,9 +62,9 @@ export default function Page() {
         <Link className="cta" href="/wh-347-generator">
           Use the free generator
         </Link>
-        <a className="cta secondary" href="mailto:hello@wh347form.com?subject=Early access">
+        <EarlyAccessLink className="cta secondary" source="excel-template">
           Get early access to automation
-        </a>
+        </EarlyAccessLink>
       </div>
 
       <footer>

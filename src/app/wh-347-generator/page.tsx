@@ -6,6 +6,7 @@ import { serializeEcpr, ecprEmployeeFromRow } from "@/engine/serialize/ecpr-xml"
 import type { EmployeeRow } from "@/engine/types";
 import { formWorkersToRows } from "@/lib/form-to-rows";
 import { track } from "@/lib/analytics";
+import { EarlyAccessLink } from "../early-access-link";
 
 // Free WH-347 generator — the funnel lead magnet ("wh 347 form": 1,300
 // searches/mo). Fully client-side: no signup, no upload, nothing leaves the
@@ -229,7 +230,7 @@ export default function Generator() {
       </form>
       <footer>
         Want this filled automatically from your payroll report every week?{" "}
-        <a href="mailto:hello@wh347form.com?subject=Early access" onClick={() => track("early_access_clicked", { source: "generator" })}>Get early access.</a>
+        <EarlyAccessLink source="generator">Get early access.</EarlyAccessLink>
       </footer>
     </main>
   );

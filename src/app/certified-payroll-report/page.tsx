@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { EarlyAccessLink } from "../early-access-link";
 
 export const metadata: Metadata = {
   title: "What Is a Certified Payroll Report? (WH-347 Explained)",
@@ -102,9 +103,9 @@ export default function Page() {
         <Link className="cta" href="/wh-347-generator">
           Generate a WH-347 free
         </Link>
-        <a className="cta secondary" href="mailto:hello@wh347form.com?subject=Early access">
+        <EarlyAccessLink className="cta secondary" source="certified-payroll-report">
           Get early access
-        </a>
+        </EarlyAccessLink>
       </div>
 
       <footer>
