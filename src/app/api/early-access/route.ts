@@ -33,16 +33,21 @@ export async function POST(request: Request) {
       }),
     }).then((r) => r.ok, () => false);
 
-    const notify = fetch("https://api.resend.com/emails", {
-      method: "POST",
-      headers,
-      body: JSON.stringify({
-        from: "wh347form <onboarding@resend.dev>",
-        to: [process.env.EARLY_ACCESS_NOTIFY ?? "gustavo.jordao021@gmail.com"],
-        subject: `Early access signup: ${email.trim()}`,
-        text: `New early-access signup on wh347form.com\n\nEmail: ${email.trim()}\nSource: ${src}\nTime: ${new Date().toISOString()}`,
-      }),
-    }).then((r) => r.ok, () => false);
+    // Optional real-time ping — only when EARLY_ACCESS_NOTIFY is set; the
+    // Resend contact (the list itself) is the source of truth either way.
+    const notifyTo = process.env.EARLY_ACCESS_NOTIFY;
+    const notify = notifyTo
+      ? fetch("https://api.resend.com/emails", {
+          method: "POST",
+          headers,
+          body: JSON.stringify({
+            from: "wh347form <onboarding@resend.dev>",
+            to: [notifyTo],
+            subject: `Early access signup: ${email.trim()}`,
+            text: `New early-access signup on wh347form.com\n\nEmail: ${email.trim()}\nSource: ${src}\nTime: ${new Date().toISOString()}`,
+          }),
+        }).then((r) => r.ok, () => false)
+      : Promise.resolve(false);
 
     const [contactOk, notifyOk] = await Promise.all([contact, notify]);
     if (!contactOk && !notifyOk)
