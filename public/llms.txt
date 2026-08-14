@@ -1,5 +1,7 @@
 # WH347form.com
 
+Full site content in one markdown file: https://www.wh347form.com/llms-full.txt
+
 Free WH-347 certified payroll generator and AI-powered certified payroll
 automation for contractors and subcontractors on US public works projects
 (Davis-Bacon Act / prevailing wage). The generator and California DIR eCPR

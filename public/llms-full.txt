@@ -1,0 +1,393 @@
+# WH347form.com — full site content
+
+Generated from the published pages. Index: https://www.wh347form.com/llms.txt
+
+
+---
+
+URL: https://www.wh347form.com
+
+For subcontractors on public works jobs
+# Certified payroll, filed from the payroll you already ran.
+Upload your payroll report — get your signed WH-347 and state certified payroll forms back in minutes, every week, for every project.
+100% freeNo signupNothing leaves your browserOfficial DOL form — Rev. Jan 2025
+[Generate a free WH-347](https://www.wh347form.com/wh-347-generator)[Upload payroll instead](https://www.wh347form.com/try)
+Covers:Federal WH-347[California eCPR](https://www.wh347form.com/california-dir-ecpr)[Texas](https://www.wh347form.com/certified-payroll-texas)
+
+[The actual DOL form, filled for you](https://www.wh347form.com/wh-347-generator)
+55 minutesDOL’s own time estimate per WH-347 (printed on the form)
+~2 minuteswith the free generator — overtime split automatically
+Every weekper project, signed under penalty of perjury — worth getting right
+
+## How it works
+
+### 1. Upload what you have
+Payroll register, journal, or crew timesheet — PDF, export, or photo.
+
+### 2. We read and check it ([try the beta](https://www.wh347form.com/try))
+Two independent AI reads plus arithmetic checks. Rows that match auto-fill; anything uncertain is flagged for a one-click confirm — nothing is ever silently guessed.
+
+### 3. Download the filing
+The official WH-347 PDF ready to sign — free, today. California DIR eCPR XML export is live in beta inside the free generator.
+
+## Guides
+
+### [The WH-347 form (official PDF)](https://www.wh347form.com/wh-347-form)
+Download the blank Rev. Jan 2025 form free, or fill it online.
+
+### [What is a certified payroll report?](https://www.wh347form.com/certified-payroll-report)
+WH-347 explained: who files, what goes in it, and when it’s due.
+
+### [California DIR eCPR guide](https://www.wh347form.com/california-dir-ecpr)
+PWCR, weekly filings, no-work weeks, and iForm vs XML upload.
+
+### [How to fill out WH-347](https://www.wh347form.com/how-to-fill-out-wh-347)
+Every column explained, and where filings get rejected.
+
+### [Excel template vs generator](https://www.wh347form.com/certified-payroll-excel-template)
+Why paid WH-347 spreadsheets exist and the free alternative.
+
+### [Prevailing wage payroll](https://www.wh347form.com/prevailing-wage-payroll)
+Base vs fringe, the overtime trap, and classification splits.
+
+### [Certified payroll in Texas](https://www.wh347form.com/certified-payroll-texas)
+Federal WH-347 vs Government Code 2258, and who you file with.
+
+### [Certified payroll from QuickBooks](https://www.wh347form.com/for/quickbooks)
+Export the report you already run; skip the Friday retyping.
+
+### [From ADP registers to WH-347](https://www.wh347form.com/for/adp)
+Payroll register in, official form (and eCPR XML) out.
+
+### [Gusto users: your first public works job](https://www.wh347form.com/for/gusto)
+What the agency wants that Gusto doesn’t produce.
+
+### [LCPtracker alternatives](https://www.wh347form.com/lcptracker-alternatives)
+What you can actually replace when the portal is mandated.
+
+## This Friday’s payroll is already due next week.
+[Generate a free WH-347](https://www.wh347form.com/wh-347-generator)[Get early access to weekly automation](#early-access)
+
+WH347form.com — certified payroll automation. Free generator, no signup.
+
+
+---
+
+URL: https://www.wh347form.com/wh-347-form
+
+Official form
+# Form WH-347 — download the official PDF, or fill it free
+WH-347 is the U.S. Department of Labor’s certified payroll form (current revision: January 2025), required weekly from contractors on federally funded construction projects. The form itself is public and free — don’t pay a form site to download it. Get the blank PDF below, or skip the typing and fill it in your browser.
+[Fill it out free online](https://www.wh347form.com/wh-347-generator)[Download the blank PDF](https://www.wh347form.com/wh347-official.pdf)
+
+## What’s on the form
+Page one is the payroll grid: each worker’s name and ID, classification, hours worked each day split into straight time and overtime, rate of pay, gross earned, deductions, and net paid. Page two is the Statement of Compliance — the sworn signature page. The DOL estimates 55 minutes per submission done by hand; [here is every column explained](https://www.wh347form.com/how-to-fill-out-wh-347), including where filings get rejected.
+
+## Filing basics
+Due weekly, within seven days of the pay date, for every week workers are on a covered project — [the full certified payroll explainer](https://www.wh347form.com/certified-payroll-report). State regimes stack on top: California requires electronic filing with the DIR ([eCPR](https://www.wh347form.com/california-dir-ecpr)), Texas enforces through the awarding body ([Texas guide](https://www.wh347form.com/certified-payroll-texas)).
+
+## Skip the manual work
+The [free generator](https://www.wh347form.com/wh-347-generator) fills this exact form in your browser with the overtime split done for you — and the [upload beta](https://www.wh347form.com/try) reads the payroll report you already have (QuickBooks, ADP, Gusto) and fills it from that.
+Form WH-347 is published by the U.S. Department of Labor and is in the public domain. This site is not affiliated with the DOL. General information, not legal advice.
+
+
+---
+
+URL: https://www.wh347form.com/wh-347-generator
+
+# Free WH-347 certified payroll generator
+Fill in the week, download the PDF. Runs entirely in your browser — nothing is uploaded or stored. Overtime after 40 hours is split automatically. Working a California public-works job? Toggle on the DIR eCPR section to also download the upload-ready XML.
+Project
+
+California DIR eCPR XML (beta)
+
+Worker 1
+
++ Add workerDownload WH-347 PDF
+Want this filled automatically from your payroll report every week? [Get early access.](#early-access)
+
+
+---
+
+URL: https://www.wh347form.com/try
+
+Beta
+# Upload a payroll report. Watch it become a WH-347.
+Drop in a payroll register, journal, or crew timesheet (PDF). Two independent AI reads extract every worker row; rows that agree and pass arithmetic checks are confirmed, anything uncertain is flagged for your review. Files are processed in memory and not stored.
+Payroll document (PDF, up to ~15 MB)
+Not ready to upload your own payroll? run the sample crew timesheet (synthetic data) and watch the verify screen work first. [See the sample PDF.](https://www.wh347form.com/sample-payroll.pdf)
+
+Closed beta. Documents are processed transiently for extraction and not retained. Questions: hello@wh347form.com
+
+
+---
+
+URL: https://www.wh347form.com/certified-payroll-report
+
+Plain-English explainer
+# What is a certified payroll report?
+A certified payroll report is the weekly wage report contractors must file on government-funded construction projects to prove every worker was paid the legally required prevailing wage. On federal projects it is form WH-347, filed under the Davis-Bacon Act; many states require their own version on top.
+
+## Who has to file one
+Every contractor and subcontractor on a federally funded or assisted construction contract covered by Davis-Bacon — generally contracts over $2,000 — files weekly, for each week workers are on the project. Many states (California, New York, Washington, and others) impose parallel requirements on state-funded public works, sometimes through their own portals and formats.
+
+## What goes in it
+For each worker on the project that week: name and an identifying number, work classification (the trade, e.g. “Electrician — Journeyman”), hours worked each day with overtime broken out, the hourly rate of pay, gross earnings, deductions, net pay, and fringe benefit information. The second page is a signed Statement of Compliance — an officer certifies under penalty of law that the wages shown are true and meet the applicable wage determination.
+
+## When it is due
+Weekly. On federal work the certified payroll must be delivered within seven days after the regular pay date for the payroll week. The obligation continues for every week of work on the project — and under several state regimes you must file even for weeks with no work performed.
+
+## Why it is painful
+The data already exists in your payroll system — but WH-347 wants it re-arranged: hours per day (payroll registers usually show weekly totals), pay split by project and classification, and fringe benefits expressed against the wage determination. Most offices re-type it into a template every Friday.
+
+## Three ways to produce one
+
+### By hand
+The blank WH-347 PDF or an Excel template, filled row by row. Free; slow; every typo is signed under penalty of perjury.
+
+### Free generator
+Our [free WH-347 generator](https://www.wh347form.com/wh-347-generator) fills the form in your browser — no signup, nothing uploaded, overtime split automatically.
+
+### Automated weekly
+Upload the payroll report you already have; get back a checked WH-347 and state formats (California DIR eCPR XML first) every week. That is what we are building.
+
+[Generate a WH-347 free](https://www.wh347form.com/wh-347-generator)[Get early access](#early-access)
+General information, not legal advice. See the U.S. Department of Labor’s WH-347 instructions for authoritative guidance.
+
+
+---
+
+URL: https://www.wh347form.com/how-to-fill-out-wh-347
+
+Step-by-step
+# How to fill out form WH-347, column by column
+The WH-347 is one page of payroll grid plus one page of sworn statement. Here is what goes where, and the spots where filings actually get rejected. (Or skip the manual work — the [free generator](https://www.wh347form.com/wh-347-generator) fills the grid for you.)
+
+## The header
+Contractor or subcontractor name (check the correct box), your address, the payroll number (sequential per project — payroll No. 1 is your first week on the job), the week ending date, and the project name, location, and project or contract number as they appear in your contract documents.
+
+## The worker grid
+One row per worker, per classification. The columns:
+
+### 1 — Name & ID
+Full name plus an identifying number (typically the last four digits of the SSN — never the full SSN on the submitted copy).
+
+### 2 — Withholding exemptions
+Optional; many filers leave it blank.
+
+### 3 — Work classification
+The trade classification from the applicable wage determination (e.g. “Electrician — Journeyman”). A worker doing two trades in one week gets two rows.
+
+### 4 — Hours worked each day
+The daily grid, split into overtime (top) and straight-time (bottom) rows. Daily entries must sum to column 5 — the most common arithmetic rejection.
+
+### 5 — Total hours
+Weekly totals for the OT and straight-time rows.
+
+### 6 — Rate of pay
+Base hourly rate, with fringe benefits shown as required (cash paid in lieu of fringes goes here as a rate addition). Overtime at no less than 1.5× the base rate.
+
+### 7 — Gross amount earned
+Gross for this project; if the worker also worked private jobs that week, show project gross over total gross.
+
+### 8 — Deductions
+Taxes and other permissible deductions; anything unusual must be explained.
+
+### 9 — Net wages paid
+What the worker actually received for the week.
+
+## Page 2 — the Statement of Compliance
+An owner or officer signs certifying the payroll is correct and complete, workers were paid no less than the applicable prevailing wage, and fringe benefits were paid to plans or in cash (check paragraph 4(a) or 4(b) accordingly). This signature carries criminal exposure for willful falsification — which is exactly why the arithmetic on page 1 deserves more than a quick eyeball.
+
+## Deadlines
+Weekly, delivered within seven days after the regular pay date for that payroll week — for every week your workers are on the covered project. California contractors also file electronically with the DIR — see the [eCPR guide](https://www.wh347form.com/california-dir-ecpr).
+[Fill it automatically — free](https://www.wh347form.com/wh-347-generator)
+General information, not legal advice. The DOL’s official WH-347 instructions are the authoritative source.
+
+
+---
+
+URL: https://www.wh347form.com/california-dir-ecpr
+
+California guide
+# California DIR certified payroll (eCPR), explained
+If you work on a public works project in California, you file certified payroll with the Department of Industrial Relations — electronically, every week, for every project. Here is how the eCPR system actually works, in plain English.
+
+## Who has to file
+Any contractor or subcontractor on a California public works project subject to prevailing wage. Before you can even bid or work, you need an active Public Works Contractor Registration (PWCR) with the DIR. Once you are on the job, certified payroll reports are due for each week a worker is employed on the project — including weeks where no work was performed (those are filed as “non-performance” payrolls).
+
+## The two ways to submit an eCPR
+Submissions go through the DIR’s online portal at services.dir.ca.gov/pw. You have two options:
+
+### 1. Manual iForm
+Select your project, choose Submit → Manual, and type each employee’s hours, classifications, rates, and deductions into the DIR’s web form — every week, worker by worker. Fine for a two-person crew; painful beyond that.
+
+### 2. XML upload
+Choose Submit → XML and upload a file in the DIR’s eCPR XML format. One upload covers the whole week’s payroll for the project. This is the route payroll tools use — you generate the XML once and submit it under your own DIR login.
+
+## What trips contractors up
+The usual failure points: missing non-performance weeks (the filing requirement does not pause when the crew is elsewhere), wage classifications that do not match the applicable prevailing wage determination, fringe benefit amounts that fall short of the required rate, and overtime that is not split correctly after 8 hours per day or 40 per week. Each of these is checkable before you submit — which is exactly what software should be doing for you.
+
+## The fast way
+We are building exactly that: upload the payroll report you already have (Gusto, ADP, QuickBooks, or a crew timesheet), get back a checked WH-347 PDF and a DIR-compatible eCPR XML you upload straight to the portal. Nothing is ever silently guessed — uncertain values are flagged for your confirmation before anything is filed.
+[Try the free WH-347 generator](https://www.wh347form.com/wh-347-generator)[Download eCPR XML (beta) — in the generator](https://www.wh347form.com/wh-347-generator)
+This guide is general information, not legal advice. Requirements are set by the California DIR — always confirm details for your project at dir.ca.gov.
+
+
+---
+
+URL: https://www.wh347form.com/certified-payroll-texas
+
+Texas guide
+# Certified payroll in Texas: what applies, and to whom you file
+Texas has no statewide electronic filing portal like California’s DIR — but that does not mean certified payroll is optional. What you file depends on who funds the job.
+
+## Federally funded projects: WH-347, weekly
+Any Texas project with federal money covered by the Davis-Bacon Act (highways with federal aid, HUD-assisted housing, federal buildings) carries the standard federal requirement: weekly certified payroll on [form WH-347](https://www.wh347form.com/certified-payroll-report) or its equivalent, submitted to the contracting agency within seven days of the pay date.
+
+## State and local public works: Government Code Chapter 2258
+For state or locally funded public works, Texas Government Code Chapter 2258 requires paying the prevailing wage rates adopted by the public body awarding the contract — and the public body enforces it, with penalties assessed per worker, per day for underpayment. Many Texas awarding bodies (cities, counties, school districts, universities) require certified payroll records as their evidence, and most accept or expect the WH-347 format even though the mandate is state-level. The submission goes to the awarding body itself, not to a state portal.
+
+## Practical upshot for Texas subs
+You end up producing the same weekly artifact — a WH-347-format certified payroll — with the destination varying by project: federal agency, general contractor, or the city’s compliance office. The [free generator](https://www.wh347form.com/wh-347-generator) covers the form; the [upload beta](https://www.wh347form.com/try) reads your payroll report and fills it for you.
+[Free WH-347 generator](https://www.wh347form.com/wh-347-generator)[Try the upload beta](https://www.wh347form.com/try)
+General information, not legal advice. Requirements are set by the contracting agency and Texas Government Code Chapter 2258 — confirm specifics in your contract documents.
+
+
+---
+
+URL: https://www.wh347form.com/prevailing-wage-payroll
+
+Payroll mechanics
+# Prevailing wage payroll, without the mystery
+On a public works job you do not pick the wage — the wage determination does. Here is how that changes the payroll you run every week, and why the certified payroll report exists to prove you did it right.
+
+## The federal prevailing wage form is WH-347
+If you are looking for “the federal prevailing wage form,” it is the Department of Labor’s [form WH-347](https://www.wh347form.com/wh-347-form) — the weekly certified payroll report that proves prevailing wages were paid. The blank PDF is free (never pay to download it), and the [free generator](https://www.wh347form.com/wh-347-generator) fills it in your browser.
+
+## The wage determination sets two numbers
+For each work classification, the applicable determination lists a base hourly rate and a fringe benefit rate. You must deliver both: fringes as contributions to bona fide plans (health, pension, training), as cash added to the hourly rate, or a mix. Where payrolls go wrong: paying the base rate correctly but shorting the fringe, or paying cash-in-lieu without showing it as a rate addition.
+
+## Overtime has a trap in it
+Overtime is at least 1.5× the base rate — fringe benefits generally do not get multiplied. Payroll systems that lump base and fringe into one rate quietly overpay OT, or worse, underpay it when configured backwards. Federal work uses over-40/week; several states (California among them) also require daily overtime after 8 hours.
+
+## One worker, several rows
+A worker who operates equipment in the morning and finishes concrete in the afternoon is two classifications with two rates — split by hours, on the same weekly report. Same for a worker split across a public and a private job: the certified payroll shows project hours and project gross against total gross.
+
+## Where it all lands: the weekly certified payroll
+Every one of these rules surfaces on the [certified payroll report](https://www.wh347form.com/certified-payroll-report) — daily hours, classification, rate, fringe, gross — signed under penalty of perjury. Our [free WH-347 generator](https://www.wh347form.com/wh-347-generator) handles the overtime split; the [upload beta](https://www.wh347form.com/try) reads the payroll report you already ran and checks the arithmetic before you sign.
+[Upload a payroll report (beta)](https://www.wh347form.com/try)[Free WH-347 generator](https://www.wh347form.com/wh-347-generator)
+General information, not legal advice. Wage determinations and overtime rules vary by project and state — always confirm against your contract documents.
+
+
+---
+
+URL: https://www.wh347form.com/certified-payroll-excel-template
+
+Template seekers, read this first
+# Certified payroll Excel template — or something better, free?
+Most searches for a certified payroll Excel template end at a paid download: form-filler sites and marketplaces sell WH-347 spreadsheets with autofill formulas for $20–60. Before you buy a spreadsheet, know what it can and cannot do.
+
+## Where templates break
+A WH-347 template reproduces the form’s layout — but the form is the easy part. The mistakes that get certified payrolls rejected (or worse, investigated) are in the numbers: overtime not split after 40 hours, daily hours that do not sum to the weekly total, fringe amounts below the wage determination, the wrong classification for the work performed. A spreadsheet happily accepts all of those errors, and the Statement of Compliance you sign under penalty of perjury does not care that the formula was off by one cell.
+
+## The free alternative
+Our [WH-347 generator](https://www.wh347form.com/wh-347-generator) does what the paid templates do — fill the federal form from your week’s hours — free, in your browser, with nothing uploaded or stored. Enter daily hours per worker; the regular/overtime split at 40 hours and gross pay arithmetic happen automatically, and the Statement of Compliance page is generated with it.
+
+### Paid Excel template
+$20–60 one-time · autofill formulas · errors pass silently · you maintain it when the form revs
+
+### Free generator (this site)
+$0 · browser-only, no signup · OT split automatic · always the current form layout
+
+### Automated weekly (coming)
+Upload your payroll report · AI reads it, checks rates and fringe · WH-347 + California eCPR XML back in minutes
+
+[Use the free generator](https://www.wh347form.com/wh-347-generator)[Get early access to automation](#early-access)
+See also: [What is a certified payroll report?](https://www.wh347form.com/certified-payroll-report) · [California DIR eCPR guide](https://www.wh347form.com/california-dir-ecpr)
+
+
+---
+
+URL: https://www.wh347form.com/for/quickbooks
+
+For QuickBooks users
+# Certified payroll from QuickBooks, without retyping the week
+QuickBooks already knows every number a WH-347 needs — names, classifications, daily hours, rates, gross pay. What it doesn’t reliably give you is the federal form itself. Here is the fastest honest path from a QuickBooks payroll report to a submitted filing.
+
+## What QuickBooks does and doesn’t do
+QuickBooks Online has no built-in WH-347. Certain QuickBooks Desktop payroll plans can produce an Excel-based certified payroll report, but plenty of contractors on government work still find themselves copying numbers into the official PDF every Friday — the DOL estimates that form at 55 minutes per submission.
+
+## The fast path: export, upload, review, download
+Run your payroll report for the work week — a payroll summary by employee or payroll details report works — and save it as a PDF. Then:
+1. Upload the PDF to the [extraction beta](https://www.wh347form.com/try). Two independent AI reads pull every worker row; anything the two reads disagree on is flagged for your review instead of guessed. 2. Confirm the flagged cells, then open the result in the [free generator](https://www.wh347form.com/wh-347-generator). 3. Download the official WH-347 PDF — and, for California public works, the DIR eCPR XML from the same screen.
+Prefer to type? The generator works standalone: enter each worker’s daily hours and rate, and it splits overtime after 40 hours automatically. Free, no signup, and the form is built in your browser.
+
+## What to watch when converting QuickBooks data
+Certified payroll wants daily hours per worker, work classifications that match the wage determination (not your internal job titles), and the base rate and fringe shown separately — [base vs fringe matters](https://www.wh347form.com/prevailing-wage-payroll). If your QuickBooks report only shows weekly totals, the filing still needs the daily grid, so pull the report that includes daily detail.
+[Upload a QuickBooks payroll PDF](https://www.wh347form.com/try)[Or use the free generator](https://www.wh347form.com/wh-347-generator)
+General information, not legal or tax advice. QuickBooks is a trademark of Intuit Inc.; wh347form.com is not affiliated with or endorsed by Intuit.
+
+
+---
+
+URL: https://www.wh347form.com/for/adp
+
+For ADP users
+# From an ADP payroll register to a filed WH-347
+Depending on which ADP product and tier you run, certified payroll reporting may be an add-on, a professional-services request, or simply not included. If your Friday reality is copying numbers from an ADP register into the federal form, this page is for you.
+
+## The weekly loop, shortened
+Download the payroll register (or wage detail report) for the work week as a PDF, then upload it to the [extraction beta](https://www.wh347form.com/try). Two independent AI reads transcribe every worker row — daily hours, rate, gross, fringe — and cross-check each other plus the arithmetic. Rows that agree are confirmed; anything uncertain is flagged for you to verify, never silently guessed. One click sends the result into the [free WH-347 generator](https://www.wh347form.com/wh-347-generator), where you download the official form — and California’s DIR eCPR XML if the job needs it.
+
+## Why not just submit the ADP report?
+Agencies want the certified payroll format: the WH-347 grid (or its exact equivalent) plus the signed Statement of Compliance. A payroll register proves what you paid, but it isn’t the sworn weekly filing the Davis-Bacon Act requires — [what a certified payroll report actually is](https://www.wh347form.com/certified-payroll-report). The register is the raw material; the WH-347 is the deliverable.
+
+## Things ADP data gets you 90% of the way on
+Daily hours and rates come straight across. What usually needs your judgment: work classifications must match the project’s wage determination rather than ADP’s job codes, and prevailing-wage fringe must be shown against the determination’s fringe rate — [base vs fringe explained](https://www.wh347form.com/prevailing-wage-payroll).
+[Upload an ADP payroll PDF](https://www.wh347form.com/try)[Or use the free generator](https://www.wh347form.com/wh-347-generator)
+General information, not legal or tax advice. ADP is a trademark of ADP, Inc.; wh347form.com is not affiliated with or endorsed by ADP.
+
+
+---
+
+URL: https://www.wh347form.com/for/gusto
+
+For Gusto users
+# Running payroll in Gusto, but the job wants a WH-347?
+Gusto is great at paying your crew. Certified payroll is a different artifact: a weekly, sworn wage report in the federal WH-347 format that government-funded projects require. If you’ve just won your first public works contract, here is the missing piece.
+
+## What the project actually wants from you
+Every week workers are on a covered job, the contracting agency (or your GC) expects the WH-347 grid — each worker’s classification, daily hours, rate, gross, deductions — plus the signed Statement of Compliance. [Full explainer here.](https://www.wh347form.com/certified-payroll-report) Miss weeks or file late and it’s the kind of paperwork problem that holds up payment.
+
+## From Gusto report to filed form
+Export the payroll journal or a payroll report covering the work week as a PDF, then upload it to the [extraction beta](https://www.wh347form.com/try) — AI transcribes the worker rows into the official form, flags anything uncertain for your review, and hands off to the [free generator](https://www.wh347form.com/wh-347-generator) for the download. Hours split into straight time and overtime after 40 automatically. Working a California public works job? The generator also produces the [DIR eCPR](https://www.wh347form.com/california-dir-ecpr) XML for upload.
+
+## The two gotchas for Gusto-run crews
+First, classifications: the form wants the wage-determination classification (“Electrician — Journeyman”), not the role name in your payroll system. Second, prevailing wage is base plus fringe — if you pay fringe in cash it belongs in the rate math, and if you pay into benefit plans it’s credited separately. [How base vs fringe works.](https://www.wh347form.com/prevailing-wage-payroll)
+[Upload a Gusto payroll PDF](https://www.wh347form.com/try)[Or use the free generator](https://www.wh347form.com/wh-347-generator)
+General information, not legal or tax advice. Gusto is a trademark of Gusto, Inc.; wh347form.com is not affiliated with or endorsed by Gusto.
+
+
+---
+
+URL: https://www.wh347form.com/lcptracker-alternatives
+
+Comparison
+# LCPtracker alternatives — the honest version
+Most “LCPtracker alternative” articles skip an inconvenient fact: if the awarding body or your prime mandates LCPtracker, you don’t get to pick the portal. What you can pick is everything before the portal — how the certified payroll gets produced each week. That’s where the hours go, and that’s where the alternatives actually compete.
+
+## What you can and can’t replace
+Can’t replace: the submission destination. LCPtracker is typically bought by agencies and primes; subs are told to use it. The same goes for California’s DIR portal or a GC’s compliance system — the destination is a contract term. Can replace: the weekly production work — turning your payroll data into the WH-347 grid, the classifications, the base-vs-fringe math, the overtime split, and the state formats like [California eCPR XML](https://www.wh347form.com/california-dir-ecpr).
+
+## The field, honestly described
+wh347form.com (this site). Free WH-347 generator — no signup, the form is built in your browser and nothing is uploaded or stored. An AI upload beta reads worker rows straight from the payroll report you already have (QuickBooks, ADP, Gusto exports); two independent AI reads cross-check each other and flag anything uncertain for your review instead of guessing. California DIR eCPR XML export included. The paid weekly-automation tier is in early access. We’re new — no testimonials yet, and we won’t invent any.
+CertifiedPayrollPro. Self-serve SaaS with published pricing (from $49/month at the time of writing) and multi-state support claims. Data entry is manual or CSV import — there’s no document upload/AI extraction, so you’re still keying or mapping columns weekly.
+Points North. Established certified payroll reporting software plus managed services; commonly used by companies that want to hand the reporting off. Quote-based sales process.
+eBacon. A broader construction payroll and compliance platform. Sales-led: demo-first, no published pricing — suited to larger operations, heavier than a card-swipe buyer needs.
+Construction-specific payroll services (for example Payroll4Construction or Foundation’s payroll). If you’re willing to move your entire payroll to a construction-specialist provider, certified payroll comes out as a byproduct. Biggest switch, biggest commitment.
+
+## How to choose in five minutes
+Ask four questions. Is pricing published, or does it take a sales call? Does the tool read the payroll reports you already produce, or will someone retype every week? Does it output the state formats your projects need — for California, [eCPR](https://www.wh347form.com/california-dir-ecpr) specifically? And can you try the core workflow before paying anything? Only the last one is free to test right now:
+[Free WH-347 generator](https://www.wh347form.com/wh-347-generator)[Upload a payroll report (beta)](https://www.wh347form.com/try)
+Vendor descriptions reflect each company’s public website at the time of writing (August 2026); offerings and pricing change — verify with the vendor. LCPtracker is a trademark of LCPtracker, Inc.; all trademarks belong to their owners. wh347form.com is not affiliated with any company mentioned.
