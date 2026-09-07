@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import { track, trackOncePerPageLoad } from "@/lib/analytics";
+import { track } from "@/lib/analytics";
 import {
   getHomepagePositioningVariant,
   type HomepagePositioningVariant,
@@ -16,15 +16,6 @@ export function HomeHero() {
   useEffect(() => {
     const assigned = getHomepagePositioningVariant();
     setVariant(assigned);
-    const params = new URLSearchParams(window.location.search);
-    trackOncePerPageLoad("landing_view", window.location.pathname, {
-      page_path: window.location.pathname,
-      experiment_variant: assigned,
-      referrer: document.referrer ? new URL(document.referrer).hostname : "direct",
-      utm_source: params.get("utm_source") ?? "",
-      utm_medium: params.get("utm_medium") ?? "",
-      utm_campaign: params.get("utm_campaign") ?? "",
-    });
   }, []);
 
   const reviewFirst = variant === "review_first";
@@ -33,11 +24,10 @@ export function HomeHero() {
 
   function trackPrimary() {
     track("primary_cta_clicked", {
-      page_path: "/",
       cta_id: reviewFirst ? "hero_check_payroll" : "hero_manual_generator",
     });
     if (!reviewFirst)
-      track("manual_generator_clicked", { page_path: "/" });
+      track("manual_generator_clicked", { source: "hero_primary" });
   }
 
   return (
@@ -67,7 +57,7 @@ export function HomeHero() {
             <Link
               className="cta secondary"
               href="/wh-347-generator"
-              onClick={() => track("manual_generator_clicked", { page_path: "/" })}
+              onClick={() => track("manual_generator_clicked", { source: "hero_secondary" })}
             >
               Enter it manually instead
             </Link>
@@ -77,7 +67,6 @@ export function HomeHero() {
               href="/try?source=homepage"
               onClick={() =>
                 track("primary_cta_clicked", {
-                  page_path: "/",
                   cta_id: "hero_upload_payroll",
                 })
               }
@@ -100,7 +89,7 @@ export function HomeHero() {
         href="/wh-347-generator"
         className="form-card"
         aria-label="Example of a filled WH-347 form"
-        onClick={() => track("manual_generator_clicked", { page_path: "/" })}
+        onClick={() => track("manual_generator_clicked", { source: "hero_form_card" })}
       >
         <Image
           src="/wh347-hero.png"

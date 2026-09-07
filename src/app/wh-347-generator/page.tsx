@@ -80,8 +80,6 @@ export default function Generator() {
     correctionsTracked.current.add(key);
     track("field_corrected", {
       field_category: fieldCategory,
-      input_type: prefillContext.inputType,
-      payroll_provider: prefillContext.payrollProvider,
     });
   };
 
@@ -91,17 +89,13 @@ export default function Generator() {
       const rows = formWorkersToRows(emps);
       const template = await fetch("/wh347-official.pdf").then((r) => r.arrayBuffer());
       const bytes = await renderOfficialWH347(template, meta, rows);
-      track("wh347_generated", {
-        workers_count: rows.length,
-        warnings_remaining: prefillContext?.warningsDetected ?? 0,
-      });
       const blob = new Blob([new Uint8Array(bytes)], { type: "application/pdf" });
       const a = document.createElement("a");
       a.href = URL.createObjectURL(blob);
       a.download = `wh347-payroll-${meta.payrollNumber || "1"}.pdf`;
       a.click();
       URL.revokeObjectURL(a.href);
-      track("wh347_downloaded", { workers_count: rows.length });
+      track("wh347_pdf_downloaded", { workers: rows.length });
     } finally {
       setBusy(false);
     }

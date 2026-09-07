@@ -1,9 +1,9 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useRouter } from "next/navigation";
 import type { VerifiedExtraction, VerifiedRow } from "@/engine/types";
-import { track, trackOncePerPageLoad } from "@/lib/analytics";
+import { track } from "@/lib/analytics";
 import {
   fileSizeBucket,
   nonSensitiveErrorCode,
@@ -38,24 +38,10 @@ export default function TryPage() {
   const [result, setResult] = useState<VerifiedExtraction | null>(null);
   const [inputMethod, setInputMethod] = useState<InputMethod | null>(null);
 
-  useEffect(() => {
-    const params = new URLSearchParams(window.location.search);
-    let sourcePage = params.get("source") ?? "direct";
-    if (sourcePage === "direct" && document.referrer) {
-      try {
-        sourcePage = new URL(document.referrer).pathname;
-      } catch {}
-    }
-    trackOncePerPageLoad("try_page_viewed", window.location.pathname, {
-      source_page: sourcePage,
-    });
-  }, []);
-
   function selectInputMethod(method: InputMethod) {
     setInputMethod(method);
     track("input_method_selected", {
-      input_type: method.inputType,
-      payroll_provider: method.payrollProvider,
+      method: `${method.payrollProvider}:${method.inputType}`,
     });
   }
 
@@ -71,7 +57,15 @@ export default function TryPage() {
       file_size_bucket: fileSizeBucket(file.size),
       ...context,
     };
-    track("file_selected", fileContext);
+    track("extract_uploaded", {
+      upload_context: [
+        isSample ? "sample" : "real",
+        fileContext.file_type,
+        fileContext.file_size_bucket,
+        context.input_type,
+        context.payroll_provider,
+      ].join(":"),
+    });
     setBusy(true);
     setError(null);
     setResult(null);
@@ -87,7 +81,6 @@ export default function TryPage() {
       const pdfBase64 = btoa(binary);
 
       failureStage = "extraction_request";
-      track("upload_started", fileContext);
       const res = await fetch("/api/extract", {
         method: "POST",
         headers: { "content-type": "application/json" },
@@ -95,19 +88,12 @@ export default function TryPage() {
       });
       const json = await res.json();
       if (!res.ok) {
-        track("extraction_failed", {
-          failure_stage: failureStage,
-          error_code: nonSensitiveErrorCode(res.status),
-          file_type: fileContext.file_type,
-          ...context,
+        track("extract_failed", {
+          failure: `${failureStage}:${nonSensitiveErrorCode(res.status)}`,
         });
         failureTracked = true;
         throw new Error(json.error ?? `extraction failed (${res.status})`);
       }
-      track("upload_completed", {
-        ...fileContext,
-        duration_ms: Math.round(performance.now() - startedAt),
-      });
       const data = json.data as VerifiedExtraction;
       setResult(data);
       const warningsDetected =
@@ -116,28 +102,22 @@ export default function TryPage() {
         (total, { row }) => total + Object.values(row).filter((value) => value != null).length,
         0,
       );
-      const resultContext = {
-        workers_detected: data.rows.length,
-        warnings_detected: warningsDetected,
-        ...context,
-      };
-      track("extraction_completed", {
-        ...resultContext,
-        fields_detected: fieldsDetected,
-        duration_ms: Math.round(performance.now() - startedAt),
+      track("extract_completed", {
+        outcome: [
+          `workers=${data.rows.length}`,
+          `fields=${fieldsDetected}`,
+          `warnings=${warningsDetected}`,
+          `duration_ms=${Math.round(performance.now() - startedAt)}`,
+        ].join(":"),
       });
-      track("review_screen_viewed", resultContext);
       localStorage.setItem(
         "wh347_prefill_context",
         JSON.stringify({ ...context, warningsDetected }),
       );
     } catch (e) {
       if (!failureTracked)
-        track("extraction_failed", {
-          failure_stage: failureStage,
-          error_code: failureStage === "file_read" ? "file_read_failed" : "network_error",
-          file_type: fileContext.file_type,
-          ...context,
+        track("extract_failed", {
+          failure: `${failureStage}:${failureStage === "file_read" ? "file_read_failed" : "network_error"}`,
         });
       setError(e instanceof Error ? e.message : "Something went wrong");
     } finally {
@@ -148,6 +128,7 @@ export default function TryPage() {
   function useInGenerator() {
     if (!result) return;
     localStorage.setItem("wh347_prefill", JSON.stringify(result.rows.map((r) => r.row)));
+    track("extract_sent_to_generator", { rows: result.rows.length });
     router.push("/wh-347-generator");
   }
 
@@ -199,7 +180,6 @@ export default function TryPage() {
               type="button"
               disabled={busy}
               onClick={async () => {
-                track("sample_payroll_clicked", { page_path: "/try" });
                 const blob = await fetch("/sample-payroll.pdf").then((r) => r.blob());
                 void onFile(new File([blob], "sample-payroll.pdf", { type: "application/pdf" }), true);
               }}
