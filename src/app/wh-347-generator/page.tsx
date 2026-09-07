@@ -1,11 +1,12 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { renderOfficialWH347 } from "@/engine/render/wh347-official";
 import { serializeEcpr, ecprEmployeeFromRow } from "@/engine/serialize/ecpr-xml";
 import type { EmployeeRow } from "@/engine/types";
 import { formWorkersToRows } from "@/lib/form-to-rows";
 import { track } from "@/lib/analytics";
+import type { InputType, PayrollProvider } from "@/lib/analytics-core";
 import { EarlyAccessLink } from "../early-access-link";
 
 // Free WH-347 generator — the funnel lead magnet ("wh 347 form": 1,300
@@ -32,6 +33,12 @@ export default function Generator() {
   const [caOpen, setCaOpen] = useState(false);
   const [ca, setCa] = useState(emptyCa());
   const [xmlError, setXmlError] = useState<string | null>(null);
+  const [prefillContext, setPrefillContext] = useState<{
+    warningsDetected: number;
+    inputType: InputType;
+    payrollProvider: PayrollProvider;
+  } | null>(null);
+  const correctionsTracked = useRef(new Set<string>());
 
   useEffect(() => {
     try {
@@ -48,11 +55,35 @@ export default function Generator() {
         rate: r.hourly_rate != null ? String(r.hourly_rate) : "",
         fringe: r.fringe_total != null ? String(r.fringe_total) : "",
       })));
+      const rawContext = localStorage.getItem("wh347_prefill_context");
+      localStorage.removeItem("wh347_prefill_context");
+      if (rawContext) {
+        const context = JSON.parse(rawContext) as {
+          warningsDetected?: number;
+          input_type?: InputType;
+          payroll_provider?: PayrollProvider;
+        };
+        setPrefillContext({
+          warningsDetected: context.warningsDetected ?? 0,
+          inputType: context.input_type ?? "other",
+          payrollProvider: context.payroll_provider ?? "unknown",
+        });
+      }
     } catch {}
   }, []);
 
-  const setEmp = (i: number, patch: Partial<Emp>) =>
+  const setEmp = (i: number, patch: Partial<Emp>, fieldCategory?: string) => {
     setEmps(emps.map((x, j) => (j === i ? { ...x, ...patch } : x)));
+    if (!prefillContext || !fieldCategory) return;
+    const key = `${i}:${fieldCategory}`;
+    if (correctionsTracked.current.has(key)) return;
+    correctionsTracked.current.add(key);
+    track("field_corrected", {
+      field_category: fieldCategory,
+      input_type: prefillContext.inputType,
+      payroll_provider: prefillContext.payrollProvider,
+    });
+  };
 
   async function generate() {
     setBusy(true);
@@ -60,13 +91,17 @@ export default function Generator() {
       const rows = formWorkersToRows(emps);
       const template = await fetch("/wh347-official.pdf").then((r) => r.arrayBuffer());
       const bytes = await renderOfficialWH347(template, meta, rows);
+      track("wh347_generated", {
+        workers_count: rows.length,
+        warnings_remaining: prefillContext?.warningsDetected ?? 0,
+      });
       const blob = new Blob([new Uint8Array(bytes)], { type: "application/pdf" });
       const a = document.createElement("a");
       a.href = URL.createObjectURL(blob);
       a.download = `wh347-payroll-${meta.payrollNumber || "1"}.pdf`;
       a.click();
       URL.revokeObjectURL(a.href);
-      track("wh347_pdf_downloaded", { workers: rows.length });
+      track("wh347_downloaded", { workers_count: rows.length });
     } finally {
       setBusy(false);
     }
@@ -187,17 +222,17 @@ export default function Generator() {
           <fieldset key={i}>
             <legend>Worker {i + 1}</legend>
             <div className="row">
-              <input placeholder="Full name" value={emp.name} onChange={(e) => setEmp(i, { name: e.target.value })} />
-              <input placeholder="Work classification (e.g. Electrician - Journeyman)" value={emp.classification} onChange={(e) => setEmp(i, { classification: e.target.value })} />
+              <input placeholder="Full name" value={emp.name} onChange={(e) => setEmp(i, { name: e.target.value }, "worker_identity") } />
+              <input placeholder="Work classification (e.g. Electrician - Journeyman)" value={emp.classification} onChange={(e) => setEmp(i, { classification: e.target.value }, "classification") } />
             </div>
             <div className="row">
               {days.map((d, di) => (
-                <input key={d} placeholder={d} inputMode="decimal" value={emp.daily[di]} onChange={(e) => setEmp(i, { daily: emp.daily.map((v, k) => (k === di ? e.target.value : v)) })} />
+                <input key={d} placeholder={d} inputMode="decimal" value={emp.daily[di]} onChange={(e) => setEmp(i, { daily: emp.daily.map((v, k) => (k === di ? e.target.value : v)) }, "hours") } />
               ))}
             </div>
             <div className="row">
-              <input placeholder="Base hourly rate ($)" inputMode="decimal" value={emp.rate} onChange={(e) => setEmp(i, { rate: e.target.value })} />
-              <input placeholder="Fringe total ($, optional)" inputMode="decimal" value={emp.fringe} onChange={(e) => setEmp(i, { fringe: e.target.value })} />
+              <input placeholder="Base hourly rate ($)" inputMode="decimal" value={emp.rate} onChange={(e) => setEmp(i, { rate: e.target.value }, "hourly_rate") } />
+              <input placeholder="Fringe total ($, optional)" inputMode="decimal" value={emp.fringe} onChange={(e) => setEmp(i, { fringe: e.target.value }, "fringe") } />
             </div>
             {caOpen && (
               <div className="row">

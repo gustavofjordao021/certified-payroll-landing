@@ -1,9 +1,32 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import type { VerifiedExtraction, VerifiedRow } from "@/engine/types";
-import { track } from "@/lib/analytics";
+import { track, trackOncePerPageLoad } from "@/lib/analytics";
+import {
+  fileSizeBucket,
+  nonSensitiveErrorCode,
+  safeFileType,
+  type InputType,
+  type PayrollProvider,
+} from "@/lib/analytics-core";
+
+type InputMethod = {
+  label: string;
+  inputType: InputType;
+  payrollProvider: PayrollProvider;
+};
+
+const inputMethods: InputMethod[] = [
+  { label: "ADP report", inputType: "pdf", payrollProvider: "adp" },
+  { label: "QuickBooks report", inputType: "pdf", payrollProvider: "quickbooks" },
+  { label: "Gusto report", inputType: "pdf", payrollProvider: "gusto" },
+  { label: "Excel or CSV", inputType: "csv_excel", payrollProvider: "excel_csv" },
+  { label: "PDF", inputType: "pdf", payrollProvider: "other" },
+  { label: "Photo or screenshot", inputType: "photo_screenshot", payrollProvider: "other" },
+  { label: "Other", inputType: "other", payrollProvider: "other" },
+];
 
 // The product demo: upload a payroll PDF -> dual-model extraction -> verify
 // screen. Rows where both models agree and checksums pass show green; anything
@@ -13,12 +36,48 @@ export default function TryPage() {
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [result, setResult] = useState<VerifiedExtraction | null>(null);
+  const [inputMethod, setInputMethod] = useState<InputMethod | null>(null);
+
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    let sourcePage = params.get("source") ?? "direct";
+    if (sourcePage === "direct" && document.referrer) {
+      try {
+        sourcePage = new URL(document.referrer).pathname;
+      } catch {}
+    }
+    trackOncePerPageLoad("try_page_viewed", window.location.pathname, {
+      source_page: sourcePage,
+    });
+  }, []);
+
+  function selectInputMethod(method: InputMethod) {
+    setInputMethod(method);
+    track("input_method_selected", {
+      input_type: method.inputType,
+      payroll_provider: method.payrollProvider,
+    });
+  }
 
   async function onFile(file: File, isSample = false) {
+    const context = isSample
+      ? { input_type: "sample" as const, payroll_provider: "unknown" as const }
+      : {
+          input_type: inputMethod?.inputType ?? ("other" as const),
+          payroll_provider: inputMethod?.payrollProvider ?? ("unknown" as const),
+        };
+    const fileContext = {
+      file_type: safeFileType(file),
+      file_size_bucket: fileSizeBucket(file.size),
+      ...context,
+    };
+    track("file_selected", fileContext);
     setBusy(true);
     setError(null);
     setResult(null);
-    track("extract_uploaded", { size_kb: Math.round(file.size / 1024), sample: isSample });
+    const startedAt = performance.now();
+    let failureStage = "file_read";
+    let failureTracked = false;
     try {
       const buf = await file.arrayBuffer();
       let binary = "";
@@ -27,20 +86,59 @@ export default function TryPage() {
         binary += String.fromCharCode(...bytes.subarray(i, i + 0x8000));
       const pdfBase64 = btoa(binary);
 
+      failureStage = "extraction_request";
+      track("upload_started", fileContext);
       const res = await fetch("/api/extract", {
         method: "POST",
         headers: { "content-type": "application/json" },
         body: JSON.stringify({ pdfBase64 }),
       });
       const json = await res.json();
-      if (!res.ok) throw new Error(json.error ?? `extraction failed (${res.status})`);
+      if (!res.ok) {
+        track("extraction_failed", {
+          failure_stage: failureStage,
+          error_code: nonSensitiveErrorCode(res.status),
+          file_type: fileContext.file_type,
+          ...context,
+        });
+        failureTracked = true;
+        throw new Error(json.error ?? `extraction failed (${res.status})`);
+      }
+      track("upload_completed", {
+        ...fileContext,
+        duration_ms: Math.round(performance.now() - startedAt),
+      });
       const data = json.data as VerifiedExtraction;
       setResult(data);
-      track("extract_completed", {
-        rows: data.rows.length,
-        review_rows: data.rows.filter((r) => r.status === "review").length,
+      const warningsDetected =
+        data.documentWarnings.length + data.rows.filter((r) => r.status === "review").length;
+      const fieldsDetected = data.rows.reduce(
+        (total, { row }) => total + Object.values(row).filter((value) => value != null).length,
+        0,
+      );
+      const resultContext = {
+        workers_detected: data.rows.length,
+        warnings_detected: warningsDetected,
+        ...context,
+      };
+      track("extraction_completed", {
+        ...resultContext,
+        fields_detected: fieldsDetected,
+        duration_ms: Math.round(performance.now() - startedAt),
       });
+      track("review_screen_viewed", resultContext);
+      localStorage.setItem(
+        "wh347_prefill_context",
+        JSON.stringify({ ...context, warningsDetected }),
+      );
     } catch (e) {
+      if (!failureTracked)
+        track("extraction_failed", {
+          failure_stage: failureStage,
+          error_code: failureStage === "file_read" ? "file_read_failed" : "network_error",
+          file_type: fileContext.file_type,
+          ...context,
+        });
       setError(e instanceof Error ? e.message : "Something went wrong");
     } finally {
       setBusy(false);
@@ -50,7 +148,6 @@ export default function TryPage() {
   function useInGenerator() {
     if (!result) return;
     localStorage.setItem("wh347_prefill", JSON.stringify(result.rows.map((r) => r.row)));
-    track("extract_sent_to_generator", { rows: result.rows.length });
     router.push("/wh-347-generator");
   }
 
@@ -66,6 +163,25 @@ export default function TryPage() {
       </p>
 
       <form className="gen" onSubmit={(e) => e.preventDefault()}>
+        <fieldset>
+          <legend>How do you have your payroll?</legend>
+          <div className="input-methods">
+            {inputMethods.map((method) => (
+              <label className="input-method" key={method.label}>
+                <input
+                  type="radio"
+                  name="input-method"
+                  checked={inputMethod?.label === method.label}
+                  onChange={() => selectInputMethod(method)}
+                />
+                <span>{method.label}</span>
+              </label>
+            ))}
+          </div>
+          <p style={{ fontSize: "0.82rem", color: "var(--muted)" }}>
+            This helps us measure which formats matter. The beta currently processes PDFs only.
+          </p>
+        </fieldset>
         <fieldset>
           <legend>Payroll document (PDF, up to ~15&nbsp;MB)</legend>
           <input
@@ -83,6 +199,7 @@ export default function TryPage() {
               type="button"
               disabled={busy}
               onClick={async () => {
+                track("sample_payroll_clicked", { page_path: "/try" });
                 const blob = await fetch("/sample-payroll.pdf").then((r) => r.blob());
                 void onFile(new File([blob], "sample-payroll.pdf", { type: "application/pdf" }), true);
               }}
