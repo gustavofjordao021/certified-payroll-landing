@@ -1,48 +1,11 @@
 import Link from "next/link";
-import Image from "next/image";
-import { vertical } from "@/verticals/certified-payroll";
 import { EarlyAccessLink } from "./early-access-link";
+import { HomeHero } from "./home-hero";
 
 export default function Home() {
   return (
     <main className="wide">
-      <div className="hero">
-        <div className="hero-copy">
-          <span className="badge">For subcontractors on public works jobs</span>
-          <h1>Certified payroll, filed from the payroll you already ran.</h1>
-          <p className="lede">{vertical.positioning}</p>
-          <div className="chips">
-            <span className="chip">100% free</span>
-            <span className="chip">No signup</span>
-            <span className="chip">Nothing leaves your browser</span>
-            <span className="chip">Official DOL form — Rev. Jan 2025</span>
-          </div>
-          <div>
-            <Link className="cta" href="/wh-347-generator">
-              Generate a free WH-347
-            </Link>
-            <Link className="cta secondary" href="/try">
-              Upload payroll instead
-            </Link>
-          </div>
-          <div className="statebar">
-            <span>Covers:</span>
-            <span className="statechip">Federal WH-347</span>
-            <Link className="statechip" href="/california-dir-ecpr">California eCPR</Link>
-            <Link className="statechip" href="/certified-payroll-texas">Texas</Link>
-          </div>
-        </div>
-        <Link href="/wh-347-generator" className="form-card" aria-label="Example of a filled WH-347 form">
-          <Image
-            src="/wh347-hero.png"
-            alt="Official DOL WH-347 certified payroll form, filled automatically"
-            width={1320}
-            height={1020}
-            priority
-          />
-          <span className="form-card-caption">The actual DOL form, filled for you</span>
-        </Link>
-      </div>
+      <HomeHero />
 
       <div className="statstrip">
         <div>
