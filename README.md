@@ -29,7 +29,7 @@ src/app/
 ## Status (scaffold, 2026-08-06)
 
 Working: landing page · free WH-347 generator (client-side PDF download) ·
-`/api/extract` dual-model pipeline (needs `ANTHROPIC_API_KEY`).
+`/api/extract` dual-model pipeline through Vercel AI Gateway using project OIDC.
 
 Next, in order:
 1. Verify screen UI consuming `VerifiedExtraction` (green auto-fill / yellow confirm rows)
@@ -42,7 +42,9 @@ Next, in order:
 
 ```bash
 npm install
-ANTHROPIC_API_KEY=sk-... npm run dev
+vercel link
+vercel env pull .env.local
+npm run dev
 ```
 
 ## Decisions already made (see research/)
